@@ -1,18 +1,33 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.dingdangmaoup.resinflex</id>
-    <name>resin-flex</name>
+  <id>com.github.dingdangmaoup.resin.flex</id>
+    <name>resin flex</name>
     <vendor>dingdangmaoup</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
+  <resource-bundle>messages.ResinBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.dingdangmaoup.resinflex.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+      <toolWindow factoryClass="com.dingdangmaoup.resin.flex.toolWindow.MyToolWindowFactory"
+        id="MyToolWindow"/>
+      <configurationType
+        implementation="com.dingdangmaoup.resin.flex.runConfiguration.PluginRunConfigurationType"
+        id="ResinConfigurationType"/>
+      <applicationConfigurable order="first" os="windows"  parentId="tools" id="ResinSetting" displayName="Resin Flex"
+        instance="com.dingdangmaoup.resin.flex.setting.SettingWindowFactory"/>t
+      <notificationGroup id="rp_msg"  displayType="BALLOON"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.dingdangmaoup.resinflex.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+      <listener class="com.dingdangmaoup.resin.flex.listeners.MyApplicationActivationListener"
+        topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+  <actions>
+    <action id="com.dingdangmaoup.resin.flex.help"
+      class="com.dingdangmaoup.resin.flex.action.ResinHelp" text="ResinHelp">
+      <add-to-group group-id="HelpMenu" anchor="first"/>
+    </action>
+  </actions>
 </idea-plugin>

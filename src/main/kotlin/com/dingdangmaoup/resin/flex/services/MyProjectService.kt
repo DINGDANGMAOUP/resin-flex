@@ -1,9 +1,9 @@
-package com.github.dingdangmaoup.resinflex.services
+package com.dingdangmaoup.resin.flex.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.github.dingdangmaoup.resinflex.MyBundle
+import com.dingdangmaoup.resin.flex.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {
